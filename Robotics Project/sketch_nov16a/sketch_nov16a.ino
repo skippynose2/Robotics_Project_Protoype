@@ -11,6 +11,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  delay(5000)
   int readVal = analogRead(soil);
   Serial.println(readVal);
   if(readVal >= 600)
