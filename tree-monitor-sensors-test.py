@@ -1,14 +1,13 @@
-import serial
 import json
+from random import *
 from time import sleep
 
-ser = serial.Serial('COM3', baudrate = 9600)
 dataFile = open('data.json', 'r')
 data = json.loads(dataFile.read())
 dataFile.close()
 
-while True and ser.isOpen():
-	arduinoData = ser.readline().strip().decode()
+while True:
+	arduinoData = randint(1, 1000)
 	data.append(arduinoData)
 	data = data[-50:]
 	print(data)
