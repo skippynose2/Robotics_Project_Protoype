@@ -17,4 +17,4 @@ while True and ser.isOpen():
 	dataFile = open('data.json', 'w')
 	json.dump(data, dataFile)
 	dataFile.close()
-	sleep(1)
+	sleep(3600)
