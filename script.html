@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <meta charset="utf-8">
+    <title>sandbox</title>
+  </head>
+  <div id="myfirstchart" style="height: 250px;">
+
+  </div>
+  <body>
+    <script type="text/javascript">
+      fetch("data.json")
+      .then(function(response){
+        return response.json()
+      }).then(function(data1) {
+        var graphData = data1;
+        console.log(graphData);
+        console.log(graphData[49][0]);
+        var d = new Date();
+        var morrisGraphData = [];
+        for (var i = 0; i < graphData.length; i++) {
+          morrisGraphData.push({date: graphData[i][1], value: graphData[i][0]});
+        }
+        new Morris.Line({
+        element: 'myfirstchart',
+        data: morrisGraphData,
+
+
+        xkey: 'date',
+
+        ykeys: ['value'],
+
+        labels: ['Water Mostiure']
+
+      });
+      });
+    </script>
+  </body>
+</html>
